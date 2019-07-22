@@ -1,0 +1,61 @@
+<template>
+  <pop-window-container>
+    <pop-window-header :title="title" />
+
+    <div :class="[$style.box]">
+      <slot />
+    </div>
+  </pop-window-container>
+</template>
+
+<style module>
+  .box {
+    background-color: #333;
+    box-sizing: border-box;
+    color: #f2f2f2;
+    display: block;
+    flex: 1 1 auto;
+    font-family: "Fira Mono", "Ubuntu Mono", "Ubuntu Monospace", "Menlo", "Consolas", "Roboto Mono", "Noto Mono", "Oxygen Mono", "Liberation Mono", monospace;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    padding: 0.3em;
+    width: 100%;
+  }
+</style>
+
+<script>
+import PopWindowContainer from './window-container'
+import PopWindowHeader from './window-header'
+
+export default {
+  name: 'PopTerminal',
+
+  components: {
+    PopWindowContainer,
+    PopWindowHeader
+  },
+
+  props: {
+    directory: {
+      type: String,
+      default: '~'
+    },
+
+    hostname: {
+      type: String,
+      default: 'pop-os'
+    },
+
+    user: {
+      type: String,
+      default: 'pop-os'
+    }
+  },
+
+  computed: {
+    title () {
+      return `${this.user}@${this.hostname}: ${this.directory}`
+    }
+  }
+}
+</script>
