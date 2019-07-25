@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="[$style.header]">
     <span>{{ title }}</span>
   </div>
 </template>
@@ -17,8 +17,8 @@ export default {
 }
 </script>
 
-<style scoped>
-  div {
+<style module>
+  .header {
     align-content: center;
     align-items: center;
     background-color: var(--pop-warm-grey-500);
@@ -37,7 +37,7 @@ export default {
     width: 100%;
   }
 
-  span {
+  .header span {
     flex: 1 1 auto;
     grid-area: center;
     text-align: center;

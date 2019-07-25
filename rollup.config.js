@@ -1,7 +1,9 @@
 import postcssImport from 'postcss-import'
 import postcssPresetEnv from 'postcss-preset-env'
+import postcssUrl from 'postcss-url'
 import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
+import copy from 'rollup-plugin-copy'
 import css from 'rollup-plugin-css-only'
 import postcss from 'rollup-plugin-postcss'
 import replace from 'rollup-plugin-replace'
@@ -25,6 +27,10 @@ const DEFAULT_CONFIG = {
         minimize: true,
         plugins: [
           postcssImport(),
+          postcssUrl({
+            filter: '**/fonts/**',
+            url: (asset) => asset.url.replace('../fonts/', 'fonts/')
+          }),
           postcssPresetEnv()
         ]
       }),
@@ -77,6 +83,12 @@ export default [{
   },
   plugins: [
     ...DEFAULT_CONFIG.plugins.preVue,
+    copy({
+      targets: [{
+        src: 'src/assets/fonts',
+        dest: 'dist'
+      }]
+    }),
     vue({
       ...DEFAULT_CONFIG.plugins.vue,
       template: {

@@ -30,7 +30,7 @@
 ---
 
 This repository contains Vue components and styles designed to mimic the look
-of common Pop!\_OS applications.
+of common Pop!_OS applications.
 
 ## Using
 
@@ -44,6 +44,10 @@ npm install --save-dev @system76/pop-vue
     ./runacommand.sh
   </PopTerminal>
 </template>
+
+<style>
+@import "@system76/pop-vue";
+</style>
 
 <script>
 import { PopTerminal } from '@system76/pop-vue'
