@@ -1,6 +1,6 @@
 <div align="center">
   <h1>@system76/pop-vue</h1>
-  <h3>Vue components designed to look like Pop!\_OS</h3>
+  <h3>Vue components designed to look like Pop!_OS</h3>
   <br>
   <br>
 </div>
