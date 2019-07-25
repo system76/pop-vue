@@ -24,8 +24,8 @@
 </style>
 
 <script>
-import PopWindowContainer from './window-container'
-import PopWindowHeader from './window-header'
+import PopWindowContainer from './window-container.vue'
+import PopWindowHeader from './window-header.vue'
 
 export default {
   name: 'PopTerminal',
