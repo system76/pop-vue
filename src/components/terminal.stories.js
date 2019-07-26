@@ -1,8 +1,8 @@
 import { withKnobs, text } from '@storybook/addon-knobs/vue'
 import { storiesOf } from '@storybook/vue'
 
-import PopTerminal from './terminal.vue'
 import PopTerminalContent from './terminal-content.vue'
+import PopTerminal from './terminal.vue'
 
 storiesOf('Apps|Terminal', module)
   .addDecorator(withKnobs)
@@ -43,12 +43,12 @@ storiesOf('Apps|Terminal', module)
           :hostname="hostname"
           :user="user"
         >
-          <span style="font-weight:600;"><span style="color:#73c48f;">{{ user }}@{{ hostname }}</span>:<span style="color:#48b9c7;">{{ directory }}</span></span>$ sudo apt install tensorflow
+          <span style="color:red;">This is just a colored span tag</span>
         </pop-terminal>
       </div>
     `
   }))
-  .add('with prompt and text', () => ({
+  .add('with prompt text', () => ({
     components: { PopTerminal, PopTerminalContent },
     props: {
       directory: { default: text('directory', '~') },
@@ -101,7 +101,40 @@ storiesOf('Apps|Terminal', module)
             :hostname="hostname"
             :user="user"
           >
-            $ sudo apt install tensorflow $
+            $ sudo apt install tensorflow$
+          </pop-terminal-content>
+        </pop-terminal>
+      </div>
+    `
+  }))
+  .add('with prompt text and cursor', () => ({
+    components: { PopTerminal, PopTerminalContent },
+    props: {
+      directory: { default: text('directory', '~') },
+      hostname: { default: text('hostname', 'pop-os') },
+      user: { default: text('user', 'pop-os') }
+    },
+    template: `
+      <div
+        style="height:30vh;width:80vw;"
+      >
+        <pop-terminal
+          :directory="directory"
+          :hostname="hostname"
+          :user="user"
+        >
+          <pop-terminal-content
+            :directory="directory"
+            :hostname="hostname"
+            :user="user"
+          >
+            $ sudo apt install tensorflow
+            [sudo] password for {{ user }}:
+            Reading package lists... Done
+            Building dependency tree
+            Reading state information... Done
+            E: Unable to locate package tensorflow
+            $
           </pop-terminal-content>
         </pop-terminal>
       </div>
