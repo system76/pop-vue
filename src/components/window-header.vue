@@ -34,6 +34,7 @@ export default {
     min-height: 2.4em;
     padding: 0.3em;
     text-align: center;
+    user-select: none;
     width: 100%;
   }
 
