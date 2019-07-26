@@ -1,7 +1,18 @@
 <template>
   <div :class="[$style.header]">
     <span>{{ title }}</span>
-    <div :class="[$style.close]"><span>&times;</span></div>
+
+    <div
+      v-if="closeButton"
+      :class="[$style.close]"
+      @click="$emit('close')"
+    >
+      <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M5 4.003a1 1 0 0 0-1 1 1 1 0 0 0 .293.707l2.293 2.293-2.293 2.293a1 1 0 0 0-.293.707 1 1 0 0 0 1 1 1 1 0 0 0 .707-.293L8 9.417l2.283 2.283a1 1 0 0 0 .717.303 1 1 0 0 0 1-1 1 1 0 0 0-.293-.707L9.414 8.003l2.283-2.283A1 1 0 0 0 12 5.003a1 1 0 0 0-1-1 1 1 0 0 0-.707.293L8 6.589 5.717 4.306a1 1 0 0 0-.01-.01A1 1 0 0 0 5 4.003z"
+        />
+      </svg>
+    </div>
   </div>
 </template>
 
@@ -9,7 +20,14 @@
 export default {
   name: 'PopWindowHeader',
 
+  inheritAttrs: false,
+
   props: {
+    closeButton: {
+      type: Boolean,
+      default: true
+    },
+
     title: {
       type: String,
       default: ''
@@ -47,15 +65,26 @@ export default {
 
   .close {
     align-content: center;
-    background-color: #e87311;
+    align-items: center;
     border-radius: 9999px;
     display: flex;
-    flex-direction: column;
-    font-size: 1.25rem;
-    height: 1rem;
+    height: 1.5rem;
     justify-content: center;
     margin-right: 0.15ch;
-    padding: 0.2ch;
-    width: 1rem;
+    width: 1.5rem;
+  }
+
+  .close svg {
+    fill: var(--pop-mid-grey);
+  }
+
+  .close:hover,
+  .close:active {
+    background-color: var(--pop-orange-700);
+  }
+
+  .close:hover svg,
+  .close:active svg {
+    fill: var(--pop-white);
   }
 </style>
