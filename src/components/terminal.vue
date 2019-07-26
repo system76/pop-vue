@@ -1,6 +1,9 @@
 <template>
-  <pop-window-container>
-    <pop-window-header :title="title" />
+  <pop-window-container v-bind="$attrs">
+    <pop-window-header
+      v-bind="$attrs"
+      :title="title"
+    />
 
     <div :class="[$style.box]">
       <slot />
@@ -29,6 +32,8 @@ import PopWindowHeader from './window-header.vue'
 
 export default {
   name: 'PopTerminal',
+
+  inheritAttrs: false,
 
   components: {
     PopWindowContainer,

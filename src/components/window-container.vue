@@ -6,7 +6,9 @@
 
 <script>
 export default {
-  name: 'PopWindowContainer'
+  name: 'PopWindowContainer',
+
+  inheritAttrs: false
 }
 </script>
 
