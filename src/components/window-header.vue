@@ -1,6 +1,7 @@
 <template>
   <div :class="[$style.header]">
     <span>{{ title }}</span>
+    <div :class="[$style.close]"><span>&times;</span></div>
   </div>
 </template>
 
@@ -38,9 +39,23 @@ export default {
     width: 100%;
   }
 
-  .header span {
+  .header > span {
     flex: 1 1 auto;
     grid-area: center;
     text-align: center;
+  }
+
+  .close {
+    align-content: center;
+    background-color: #e87311;
+    border-radius: 9999px;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25rem;
+    height: 1rem;
+    justify-content: center;
+    margin-right: 0.15ch;
+    padding: 0.2ch;
+    width: 1rem;
   }
 </style>
