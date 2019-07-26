@@ -33,12 +33,12 @@ import PopWindowHeader from './window-header.vue'
 export default {
   name: 'PopTerminal',
 
-  inheritAttrs: false,
-
   components: {
     PopWindowContainer,
     PopWindowHeader
   },
+
+  inheritAttrs: false,
 
   props: {
     directory: {
