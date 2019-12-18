@@ -18,6 +18,10 @@
     width: 1ch;
   }
 
+  .line {
+    word-wrap: break-word;
+  }
+
   @keyframes blink {
     0% { opacity: 0; }
     49% { opacity: 0; }
@@ -57,7 +61,7 @@ function templateLine (h, text, { $style, props }) {
     formattedText.push(h('span', { class: $style.cursor }, ''))
   }
 
-  return h('div', formattedText)
+  return h('div', { class: $style.line }, formattedText)
 }
 
 function templateContent (h, vnode, ctx) {
