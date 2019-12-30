@@ -1,6 +1,6 @@
 {
   "name": "@system76/pop-vue",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "description": "Vue components designed to look like Pop!_OS",
   "author": "System76 <hosting@system76.com> (https://system76.com)",
   "license": "GPL-3.0",
