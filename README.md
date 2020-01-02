@@ -88,3 +88,7 @@ build: {
 ## Deployment
 
 Simply push to master and travis will do all the work for you!
+
+## Releases
+
+To release a new version of `pop-vue`, push a commit to the `master` branch with the correct [commit message format](https://github.com/semantic-release/semantic-release#commit-message-format) from the [Angular Commit Message Conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines).
