@@ -19,6 +19,7 @@ export default {
     box-shadow: var(--pop-shadow-window);
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     justify-content: flex-start;
   }
 </style>
