@@ -17,11 +17,12 @@
     box-sizing: border-box;
     color: #f2f2f2;
     display: block;
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     font-family: "Fira Mono", "Ubuntu Mono", "Ubuntu Monospace", "Menlo", "Consolas", "Roboto Mono", "Noto Mono", "Oxygen Mono", "Liberation Mono", monospace;
     font-size: 0.9rem;
+    height: 100%;
     line-height: 1.2;
-    padding: 0.3em;
+    overflow: hidden;
     width: 100%;
   }
 </style>
