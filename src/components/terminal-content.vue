@@ -21,10 +21,11 @@ function regexLine (text) {
   if (text.trim() === '$') {
     return DEFAULT
   } else {
-    const matches = text.match(/^((?<first>\$|#)(?<delay>\d*)\|?(?<speed>\d*)(\$|#)?)?(?<text>.*?)(?<last>\$?)$/)
+    const matches = text.match(/^((\$|#)(\d*)\|?(\d*)(\$|#)?)?(.*?)(\$?)$/)
 
     if (matches != null) {
-      return Object.assign({}, DEFAULT, matches.groups)
+      const [,, first, delay, speed,, text, last] = matches
+      return Object.assign({}, DEFAULT, { first, delay, speed, text, last })
     } else {
       return DEFAULT
     }
